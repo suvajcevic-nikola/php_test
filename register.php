@@ -61,28 +61,33 @@ if(isset($_POST["submit"]))
 
 <html>
 <head>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<form action="register.php" method="POST">
-    Username:
-    <input type="text" name="username">
-    <?php echo $usernameErr; ?>
-    <br><br>
-    Email:
-    <input type="text" name="email">
-    <?php echo $emailErr; ?>
-    <br><br>
-    Password:
-    <input type="password" name="password">
-    <?php echo $passwordErr; ?>
-    <br><br>
-    Repeat password:
-    <input type="password" name="repassword">
-    <?php echo $repasswordErr; ?>
-    <br><br>
-    <input type="submit" name="submit" value="Submit">
-</form>
+    <div class="container-fluid">
+        <form action="register.php" method="POST">
+            <h3>Register</h3>
+            Username:
+            <input type="text" name="username" class="form-control">
+            <?php echo $usernameErr; ?>
+            <br>
+            Email:
+            <input type="text" name="email" class="form-control">
+            <?php echo $emailErr; ?>
+            <br>
+            Password:
+            <input type="password" name="password" class="form-control">
+            <?php echo $passwordErr; ?>
+            <br>
+            Repeat password:
+            <input type="password" name="repassword" class="form-control">
+            <?php echo $repasswordErr; ?>
+            <br>
+            <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+        </form>
+    </div>
 </body>
 
 </html>
