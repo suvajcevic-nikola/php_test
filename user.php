@@ -54,4 +54,15 @@ require_once "connection.php";
 
             return $result;
         }
+
+        public function search($keywords)
+        {
+            $conn = new Connection();
+
+            $sql = "SELECT * FROM users WHERE username LIKE '%{$keywords}%' OR email LIKE '%{$keywords}%'";
+
+            $result = $conn->runQuery($sql);
+
+            return $result;
+        }
     }
