@@ -1,5 +1,6 @@
 <?php
 
+    //konekcija
     $servername =  'localhost';
     $username = 'root';
     $password = '';
@@ -12,18 +13,20 @@
 
     echo 'Connection successful';
 
+    //formiranje baze "test"
     $sql = "CREATE DATABASE IF NOT EXISTS test CHARACTER SET utf16";
 
     echo '<br>';
     if($conn->query($sql))
     {
-        echo 'Database "test" is created successfuly';
+        echo 'Database "test" is created successfully';
     }
     else
     {
         echo 'Error:' . $conn->error;
     }
 
+    //formiranje tabele "users"
     $sql = 'USE test;';
 
     $sql = $sql . "CREATE TABLE IF NOT EXISTS users(
@@ -36,7 +39,7 @@
     echo '<br>';
     if($conn->multi_query($sql))
     {
-        echo 'Table "users" is created succesfuly';
+        echo 'Table "users" is created successfully';
     }
     else
     {
