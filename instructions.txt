@@ -1,0 +1,7 @@
+
+
+        1. In connection.php put your configuration data for connecting on server.
+
+        2. Run database.php in browser once. It will make database and users table on localhost.
+
+        3. Run register.php in browser to add new users to the database.
