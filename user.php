@@ -14,4 +14,18 @@
             $this->password = $password;
             $this->email = $email;
         }
+
+        public function userCheck($username, $email)
+        {
+            $sql = "SELECT username, email
+                FROM users
+                WHERE username = '$username'
+                OR email = '$email'";
+        }
+
+        public function registerUser()
+        {
+            $sql = "INSERT INTO users (username, email, password)
+                VALUES ('$username','$email', MD5('$password'))";
+        }
     }
