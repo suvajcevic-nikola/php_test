@@ -67,15 +67,19 @@ if(isset($_POST["submit"]))
 <form action="register.php" method="POST">
     Username:
     <input type="text" name="username">
+    <?php echo $usernameErr; ?>
     <br><br>
     Email:
     <input type="text" name="email">
+    <?php echo $emailErr; ?>
     <br><br>
     Password:
     <input type="password" name="password">
+    <?php echo $passwordErr; ?>
     <br><br>
     Repeat password:
     <input type="password" name="repassword">
+    <?php echo $repasswordErr; ?>
     <br><br>
     <input type="submit" name="submit" value="Submit">
 </form>

@@ -40,4 +40,18 @@
             $conn = new Connection();
             $conn->runQuery($sql);
         }
+
+        public function loginCheck($email, $password)
+        {
+            $conn = new Connection();
+
+            $sql = "SELECT *
+                FROM users
+                WHERE email = '$email'
+                AND password = MD5('$password')";
+
+            $result = $conn->runQuery($sql);
+
+            return $result;
+        }
     }
