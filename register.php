@@ -2,7 +2,7 @@
 
 require_once 'user.php';
 
-//validacija forme
+//form validation
 
 $usernameErr = $emailErr = $passwordErr = $repasswordErr = "*";
 
@@ -27,7 +27,7 @@ if(isset($_POST["submit"]))
     }
     if ($usernameErr=="*" and $emailErr=="*" and $passwordErr == "*" and $repasswordErr == "*")
     {
-        //provera poklapanja sifara
+        //checking if passwords are matching
         if($password != $repassword)
         {
             $passwordErr = "You must enter same password";
@@ -35,8 +35,8 @@ if(isset($_POST["submit"]))
         }
         else
         {
-            /*uspesna validacija, proveravamo postojece korisnike
-            i ukoliko nema poklapanja username ili email, upisujemo novog korisnika u bazu*/
+            /*successful validation, checking existing users,
+            if there is not user with this username and email, than adding new user to database*/
             $user = new User($username, $password, $email);
             $result = $user->userCheck($username, $email);
             $nr = $result->num_rows;
