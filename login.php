@@ -11,14 +11,14 @@ if(isset($_POST['login'])) {
 
     //provera email i sifre
     $result = $user->loginCheck($email, $password);
+    $row = $result->fetch_assoc();
 
     //provera da li metoda vraca redove
-    if($result)
+    if($row)
     {
         //login i redirekcija na index.php
         session_start();
 
-        $row = $result->fetch_assoc();
         $_SESSION['username'] = $row['username'];
         $_SESSION['email'] = $row['email'];
         $_SESSION['password'] = $row['password'];

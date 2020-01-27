@@ -12,8 +12,8 @@ session_start();
     }
     if(!empty($_SESSION['id']))
     {
+        echo "<a href='logout.php'>Logout</a>";
         echo "<h2> Welcome, " . $_SESSION['username'] . "! </h2>";
-        echo $_SESSION['id'];
     }
 
 
