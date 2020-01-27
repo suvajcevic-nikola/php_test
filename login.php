@@ -9,14 +9,14 @@ if(isset($_POST['login'])) {
 
     $user = new User('', $password, $email);
 
-    //provera email i sifre
+    //checking email and passowrd
     $result = $user->loginCheck($email, $password);
     $row = $result->fetch_assoc();
 
-    //provera da li metoda vraca redove
+    //checking if method is returning rows
     if($row)
     {
-        //login i redirekcija na index.php
+        //login and redirection on index.php
         session_start();
 
         $_SESSION['username'] = $row['username'];
@@ -28,7 +28,7 @@ if(isset($_POST['login'])) {
     }
     else
     {
-        //nema redova, greska
+        //there is no rows, error!
         echo 'Unsuccessful Login';
     }
 

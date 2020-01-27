@@ -30,8 +30,8 @@ if(isset($_POST["submit"]))
         //provera poklapanja sifara
         if($password != $repassword)
         {
-            $passwordErr = $passwordErr . "You must enter same password";
-            $repasswordErr = $repasswordErr . "You must enter same password";
+            $passwordErr = "You must enter same password";
+            $repasswordErr = "You must enter same password";
         }
         else
         {
@@ -64,6 +64,7 @@ if(isset($_POST["submit"]))
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <div class="container-fluid">
@@ -71,20 +72,20 @@ if(isset($_POST["submit"]))
             <h3>Register</h3>
             Username:
             <input type="text" name="username" class="form-control">
-            <?php echo $usernameErr; ?>
+            <span class="error"> <?php echo $usernameErr; ?> </span>
             <br>
             Email:
             <input type="text" name="email" class="form-control">
-            <?php echo $emailErr; ?>
+            <span class="error"> <?php echo $emailErr; ?> </span>
             <br>
             Password:
             <input type="password" name="password" class="form-control">
-            <?php echo $passwordErr; ?>
+            <span class="error"> <?php echo $passwordErr; ?> </span>
             <br>
             Repeat password:
             <input type="password" name="repassword" class="form-control">
-            <?php echo $repasswordErr; ?>
-            <br>
+            <span class="error"> <?php echo $repasswordErr; ?> </span>
+            <br><br>
             <input type="submit" name="submit" value="Submit" class="btn btn-primary">
         </form>
     </div>

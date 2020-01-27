@@ -20,7 +20,7 @@ require_once 'user.php';
 
         if(isset($_GET['keywords']))
         {
-            //provera da li je korisnik logovan
+            //checking if user is logged in
 
             if(empty($_SESSION['id']))
             {
@@ -30,7 +30,7 @@ require_once 'user.php';
                 echo "<br>";
                 echo '<a href="register.php">Register</a>';
             }
-            // korisnik je logovan, prikazuje se rezultat pretrage
+            //user is logged in, showing search results
             if(!empty($_SESSION['id']))
             {
                 $email = $_SESSION['email'];

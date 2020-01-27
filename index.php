@@ -16,14 +16,14 @@ session_start();
 <body>
     <div class="container-fluid">
         <?php
-        //ukoliko korinsik nije logovan
+        //if user is not logged in
         if(empty($_SESSION['id']))
         {
             echo '<a href="login.php">Login</a>';
             echo "<br>";
             echo '<a href="register.php">Register</a>';
         }
-        //ako je lgoovan
+        //if user is logged
         if(!empty($_SESSION['id']))
         {
             echo "<a href='logout.php'>Logout</a>";
