@@ -21,11 +21,23 @@
                 FROM users
                 WHERE username = '$username'
                 OR email = '$email'";
+
+            $conn = new Connection();
+            $result = $conn->runQuery($sql);
+
+            return $result;
         }
 
         public function registerUser()
         {
+            $username = $this->username;
+            $email = $this->email;
+            $password = $this->password;
+
             $sql = "INSERT INTO users (username, email, password)
                 VALUES ('$username','$email', MD5('$password'))";
+
+            $conn = new Connection();
+            $conn->runQuery($sql);
         }
     }

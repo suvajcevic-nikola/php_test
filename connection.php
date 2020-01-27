@@ -15,4 +15,15 @@ class Connection
 
     }
 
+    public function runQuery($query)
+    {
+        if(!$this->conn->error)
+        {
+            return $this->conn->query($query);
+        }
+        else
+        {
+            echo 'Error';
+        }
+    }
 }

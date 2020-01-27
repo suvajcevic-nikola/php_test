@@ -35,7 +35,22 @@ if(isset($_POST["submit"]))
         }
         else
         {
-            //uspesna validacija, upisujemo korisnika u bazu
+            /*uspesna validacija, proveravamo postojece korisnike
+            i ukoliko nema poklapanja username ili email, upisujemo novog korisnika u bazu*/
+            $user = new User($username, $password, $email);
+            $result = $user->userCheck($username, $email);
+            $nr = $result->num_rows;
+
+            if($nr != 0)
+            {
+                echo "Username or email is already taken, choose another";
+            }
+            else
+            {
+                $user->registerUser();
+
+                header('Location: login.php');
+            }
         }
     }
 
