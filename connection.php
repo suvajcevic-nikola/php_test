@@ -26,4 +26,9 @@ class Connection
             echo 'Error';
         }
     }
+
+    public function safeInput($input)
+    {
+        return $this->conn->real_escape_string($input);
+    }
 }

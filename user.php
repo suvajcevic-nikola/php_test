@@ -30,14 +30,15 @@ require_once "connection.php";
 
         public function registerUser()
         {
-            $username = $this->username;
-            $email = $this->email;
-            $password = $this->password;
+            $conn = new Connection();
+
+            $username = $conn->safeInput($this->username);
+            $email = $conn->safeInput($this->email);
+            $password = $conn->safeInput($this->password);
 
             $sql = "INSERT INTO users (username, email, password)
                 VALUES ('$username','$email', MD5('$password'))";
 
-            $conn = new Connection();
             $conn->runQuery($sql);
         }
 
@@ -59,7 +60,9 @@ require_once "connection.php";
         {
             $conn = new Connection();
 
-            $sql = "SELECT * FROM users WHERE username LIKE '%{$keywords}%' OR email LIKE '%{$keywords}%'";
+            $safewords = $conn->safeInput($keywords);
+
+            $sql = "SELECT * FROM users WHERE username LIKE '%{$safewords}%' OR email LIKE '%{$safewords}%'";
 
             $result = $conn->runQuery($sql);
 
